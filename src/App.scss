@@ -1,0 +1,10 @@
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  main{
+    border:1px solid red;
+    height: 100%;
+  }
+}
