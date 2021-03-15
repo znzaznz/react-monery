@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import "./index.scss"
+import "./index.scss";
+require("../../icons/tags.svg");
 
 export default function index() {
     return (
@@ -8,7 +9,7 @@ export default function index() {
             <ul>
                 <li>
                     <svg>
-                        <use xlinkHref={""}/>
+                        <use xlinkHref="#tags"/>
                     </svg>
                     <Link to={"/tags"}>标签</Link>
                 </li>
