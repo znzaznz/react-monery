@@ -1,0 +1,21 @@
+.NoteSection{
+  font-size: 14px;
+  background-color: #E5e5e5;
+  >label{
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >span{
+      margin-right: 16px;
+    }
+    >input{
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      padding: 26px 0 ;
+      background-color: #E5e5e5;
+      white-space: nowrap;
+    }
+  }
+}
