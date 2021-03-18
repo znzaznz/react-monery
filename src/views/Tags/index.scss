@@ -1,0 +1,27 @@
+.Tags{
+  >div{
+    >ol{
+      background-color: white;
+      >li{
+        padding: 10px 0;
+        margin-left: 16px;
+        border-bottom: 1px solid #bcbbc1;
+        >a{
+          justify-content: space-between;
+          display: flex;
+          color: #333333;
+          >span{
+            font-size: 14px;
+            display: block;
+          }
+          >svg{
+            margin-right: 16px;
+            height: 18px;
+            width: 18px;
+            fill: #333333;
+          }
+        }
+      }
+    }
+  }
+}
