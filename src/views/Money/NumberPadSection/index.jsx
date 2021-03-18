@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import "./index.scss"
+import {buttonClick} from "../../../lib/buttonClick";
 
 export default function Index() {
     //初始化代码数据，并且得到showNum中的数字
@@ -7,32 +8,9 @@ export default function Index() {
     const [showNum,setShowNum] = useState("0")
 
     //设定button点击事件
-    const clickButtonNum = (e)=>{
+    const buttonClickNum = (e)=>{
         const inputValue = e.target.textContent
-        const charCode = inputValue.charCodeAt();
-        if (charCode >= 46 && charCode <= 57){
-            if (showNum.length <= 17){
-                if (showNum === "0" && inputValue !== "."){
-                    return setShowNum(inputValue)
-                }
-                if (inputValue === "." && showNum.indexOf(".") !== -1){
-                    return showNum;
-                }
-                setShowNum(showNum+inputValue)
-            }else {
-                alert("数字过长")
-            }
-        }else if (inputValue === "清空"){
-            setShowNum("0")
-        }else if (inputValue === "删除"){
-            if (showNum.length === 1){
-                setShowNum("0")
-            }else {
-                setShowNum(showNum.slice(0,-1))
-            }
-        }else {
-            console.log("ok")
-        }
+        buttonClick(inputValue,showNum,setShowNum) //重构了代码
     }
 
     return (
@@ -40,7 +18,7 @@ export default function Index() {
             <div className={"showNum"}>{showNum}</div>
             <div className={"numberPad clearfix"}>
                 {buttonNum.map((item)=>{
-                   return <button key={item} onClick={clickButtonNum}>{item}</button>
+                   return <button key={item} onClick={buttonClickNum}>{item}</button>
                 })}
             </div>
         </div>
