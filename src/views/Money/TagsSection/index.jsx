@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import uuid from "react-uuid"
 import "./index.scss"
 
-export default function Index() {
+export default function Index(props) {
     //定义标签数组
     const [tags,setTags] = useState([
         {id:uuid(),name:"衣"},
@@ -19,11 +19,12 @@ export default function Index() {
     }
 
     //增加选中效果
-    const [selectedTags,setSelectedTags] = useState([])
+    const selectedTags = props.tags;
+    const setSelectedTags = props.onChange
     const selectedSwitch = (itemID)=>{
         return ()=>{
             if (selectedTags.indexOf(itemID) === -1){
-                setSelectedTags([...selectedTags,itemID])
+                setSelectedTags([...selectedTags, itemID])
             }else {
                 setSelectedTags(selectedTags.filter(item=>item!==itemID))
             }
@@ -35,7 +36,7 @@ export default function Index() {
             <div>
                 <ol>
                     {tags.map((item) => {
-                        return <li key={item.id} className={selectedTags.indexOf(item.id)  >= 0? "selected" : ""}
+                        return <li key={item.id} className={selectedTags.indexOf(item.id) !== -1 ? "selected":""}
                         onClick={selectedSwitch(item.id)}
                         >{item.name}</li>
                     })}

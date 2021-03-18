@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import "./index.scss"
-import {buttonClick} from "../../../lib/buttonClick";
+import {buttonClick} from "../../../lib/buttonClick.jsx";
 
 export default function Index() {
     //初始化代码数据，并且得到showNum中的数字
