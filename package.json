@@ -94,6 +94,7 @@
   },
   "devDependencies": {
     "react-router-dom": "^5.2.0",
+    "react-uuid": "^1.0.2",
     "svg-sprite-loader": "^6.0.0",
     "svgo-loader": "^3.0.0"
   },

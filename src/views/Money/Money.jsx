@@ -1,8 +1,8 @@
 import React from 'react';
-import TagsSection from "../../component/TagsSection"
-import NoteSection from "../../component/NoteSection"
-import CategorySection from "../../component/CategorySection"
-import NumberPadSection from "../../component/NumberPadSection"
+import TagsSection from "./TagsSection"
+import NoteSection from "./NoteSection"
+import CategorySection from "./CategorySection"
+import NumberPadSection from "./NumberPadSection"
 import "./index.scss"
 
 export default function Money() {
