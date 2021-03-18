@@ -1,12 +1,12 @@
 import React, {useRef} from 'react';
 import "./index.scss"
 
-export default function Index() {
+export default function Index(props) {
     const inputValue = useRef(null)
 
     //收集数据
     const collectValue = ()=>{
-        console.log(inputValue.current.value);
+        props.onChange(inputValue.current.value)
     }
 
     return (

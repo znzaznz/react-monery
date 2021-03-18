@@ -10,7 +10,7 @@ export default function Money() {
     const [putData,setPutData] = useState({
         tags:[],
         note:"",
-        category:"",
+        category:"-",
         account:0
     })
 
@@ -25,10 +25,10 @@ export default function Money() {
 
     return (
         <div className={"Money"}>
-           <TagsSection tags={putData.tags} onChange={(data)=>changePutData({"tags":data})}/>
-           <NoteSection note={putData.note}/>
-           <CategorySection category={putData.category}/>
-           <NumberPadSection account={putData.account}/>
+           <TagsSection tags={putData.tags} onChange={(data)=>changePutData({tags:data})}/>
+           <NoteSection onChange={(data)=>changePutData({note:data})}/>
+           <CategorySection category={putData.category} onChange={(data)=>changePutData({category:data})}/>
+           <NumberPadSection onChange={(data)=>{changePutData({account:data})}}/>
         </div>
     )
 }
