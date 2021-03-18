@@ -1,28 +1,28 @@
 //这个用来封装数字点击激发的事件
-const buttonClick = (inputValue,value,fn)=>{
+const buttonClick = (inputValue,value)=>{
     const charCode = inputValue.charCodeAt();
     if (charCode >= 46 && charCode <= 57){
         if (value.length <= 17){
             if (value === "0" && inputValue !== "."){
-                return fn(inputValue)
+                return inputValue
             }
             if (inputValue === "." && value.indexOf(".") !== -1){
                 return value;
             }
-            fn(value+inputValue)
+            return value+inputValue
         }else {
             alert("数字过长")
         }
     }else if (inputValue === "清空"){
-        fn("0")
+        return "0"
     }else if (inputValue === "删除"){
         if (value.length === 1){
-            fn("0")
+            return "0"
         }else {
-            fn(value.slice(0,-1))
+            return value.slice(0,-1)
         }
     }else {
-        console.log("ok")
+        return "ok"
     }
 }
 

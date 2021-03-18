@@ -28,7 +28,7 @@ export default function Money() {
            <TagsSection tags={putData.tags} onChange={(data)=>changePutData({tags:data})}/>
            <NoteSection onChange={(data)=>changePutData({note:data})}/>
            <CategorySection category={putData.category} onChange={(data)=>changePutData({category:data})}/>
-           <NumberPadSection onChange={(data)=>{changePutData({account:data})}}/>
+           <NumberPadSection number={putData.account} onChange={(data)=>{changePutData({account:data})}}/>
         </div>
     )
 }
