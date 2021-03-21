@@ -1,0 +1,18 @@
+.ChangeTags{
+  >label{
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >span{
+      margin-right: 16px;
+    }
+    >input{
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      background-color: inherit;
+      white-space: nowrap;
+    }
+  }
+}
