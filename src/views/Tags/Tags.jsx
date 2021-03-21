@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import {initializeNumber} from "../../model/initializeNumber";
+import {useTags} from "../../model/useTags";
 import AddTagsButton from "../../component/AddTagsButton"
 import SvgIcon from "../../component/SvgIcon"
 import "./index.scss"
 
 export default function Tags() {
-    const [tagsArr,setTagsArr] = useState(initializeNumber())
+    const [tagsArr,setTagsArr] = useState(useTags().defaultData)
 
     return (
         <div className={"Tags"}>
@@ -14,7 +14,7 @@ export default function Tags() {
                 <ol>
                     {tagsArr.map((item)=>{
                         return <li key={item.id}>
-                            <Link to={`/tags/${item.name}`}>
+                            <Link to={`/tags/${item.id}`}>
                                 <span>{item.name}</span>
                                 <SvgIcon name={"right"}/>
                             </Link>

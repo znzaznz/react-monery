@@ -22,7 +22,7 @@ const buttonClick = (inputValue,value)=>{
             return value.slice(0,-1)
         }
     }else {
-        return "ok"
+        return "0"
     }
 }
 

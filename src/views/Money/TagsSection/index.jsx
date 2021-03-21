@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import uuid from "react-uuid"
+import AddTagsButton from "../../../component/AddTagsButton"
 import "./index.scss"
 
 export default function Index(props) {
@@ -10,13 +11,6 @@ export default function Index(props) {
         {id:uuid(),name:"住"},
         {id:uuid(),name:"行"}])
 
-    //添加标签
-    const addTags = ()=>{
-        const tagName = window.prompt("请输入您要添加的标签")
-        setTags(()=>{
-            return [...tags,{id:uuid(),name:tagName}]
-        })
-    }
 
     //增加选中效果
     const selectedTags = props.tags;
@@ -41,7 +35,7 @@ export default function Index(props) {
                         >{item.name}</li>
                     })}
                 </ol>
-                <button onClick={addTags}>新增标签</button>
+                <AddTagsButton tags={tags} setTags={setTags}/>
             </div>
         </div>
     )

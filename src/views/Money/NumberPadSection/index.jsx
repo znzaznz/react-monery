@@ -10,9 +10,14 @@ export default function Index(props) {
     //设定button点击事件
     const buttonClickNum = (e)=>{
         const inputValue = e.target.textContent
-        const numberStr = buttonClick(inputValue,showNum) //重构了代码
-        setShowNum(numberStr);
-        props.onChange(Number(numberStr))
+        if (inputValue === "OK"){
+            setShowNum("0")
+            props.onClick()
+        }else {
+            const numberStr = buttonClick(inputValue,showNum) //重构了代码
+            setShowNum(numberStr);
+            props.onChange(Number(numberStr))
+        }
     }
 
     return (

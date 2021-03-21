@@ -13,7 +13,7 @@ export default function Index(props) {
         <div className={"NoteSection"}>
             <label>
                 <span>备注</span>
-                <input type="text" placeholder={"在这里添加备注"} ref={inputValue} onBlur={collectValue}/>
+                <input type="text" placeholder={"在这里添加备注"} ref={inputValue} onChange={collectValue} value={props.note}/>
             </label>
         </div>
     )
