@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import {useTags} from "../../model/useTags";
-import AddTagsButton from "../../component/AddTagsButton"
+import TagsButton from "../../component/TagsButton"
 import SvgIcon from "../../component/SvgIcon"
 import "./index.scss"
 
 export default function Tags() {
-    const [tagsArr,setTagsArr] = useState(useTags().defaultData)
+    const {tagsArr,addTag} = useTags()
 
     return (
         <div className={"Tags"}>
@@ -21,7 +21,7 @@ export default function Tags() {
                         </li>
                     })}
                 </ol>
-               <AddTagsButton tags={tagsArr} setTags={setTagsArr}/>
+                <TagsButton onClick={addTag} name={"新建标签"}/>
             </div>
         </div>
     )
