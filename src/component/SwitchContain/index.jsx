@@ -9,16 +9,16 @@ import Tag from "../../views/Tag"
 export default function index() {
     return (
         <Switch>
-            <Route path={"/tags/:tag"} exact>
-                <Tag/>
-            </Route>
             <Route path={"/tags"} exact={true}>
                 <Tags/>
             </Route>
-            <Route path={"/money"} exact>
+            <Route path={"/tags/:tag"}>
+                <Tag/>
+            </Route>
+            <Route path={"/money"} >
                 <Money/>
             </Route>
-            <Route path={"/statistics"} exact>
+            <Route path={"/statistics"} >
                 <Statistics/>
             </Route>
             <Redirect exact from={"/"} to={"/money"}/>
