@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
+import dayjs from "dayjs";
 import CategorySection from "../Money/CategorySection"
-import "./index.scss"
 import {useTags} from "../../model/useTags";
+import "./index.scss"
 
 function Statistics(props) {
     const [category,setCategory] = useState("-")
-    const {tagsArr,selectTagName} = useTags();
+    const {selectTagName} = useTags();
 
     return (
         <div className={"statistics"}>
@@ -16,6 +17,7 @@ function Statistics(props) {
             <ul>
                 {props.record.map((item)=>{
                     if (item.category === category){
+                        console.log(dayjs(item.date).format('YYYY-MM-D'));
                         return (
                             <li key={item.id}>
                                 <span>
