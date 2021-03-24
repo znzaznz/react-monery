@@ -18,4 +18,15 @@ const classifyDate = (array)=>{
     return showRecords
 }
 
-export {classifyDate}
+const dealDate = (record)=>{
+    const showRecords = {"-":[],"+":[]};
+    record.forEach((item)=>{
+        showRecords[item.category].push(item)
+    })
+    for(let categoryType in showRecords){
+        showRecords[categoryType] = classifyDate(showRecords[categoryType])
+    }
+    return showRecords
+}
+
+export {dealDate}
