@@ -4,10 +4,16 @@
   }
   ul{
     li{
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      .note{
+      >.date{
+        padding: 6px 12px;
+      }
+      >.recordLi{
+        padding: 9px 16px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+      }
+      >.note{
         color: #999999;
       }
     }
