@@ -2,12 +2,6 @@ import uuid from "react-uuid";
 import {useState} from "react";
 import {useUpdate} from "../lib/useUpdate";
 
-const defaultData = [
-    {id:uuid(),name:"衣"},
-    {id:uuid(),name:"食"},
-    {id:uuid(),name:"住"},
-    {id:uuid(),name:"行"}
-]
 const useTags = ()=>{
     //从localhost中取出数据,并且设置初始的tagsArr的名字
     const winTags = JSON.parse(window.localStorage.getItem("tags")) ;
