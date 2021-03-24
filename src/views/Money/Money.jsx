@@ -6,15 +6,18 @@ import NumberPadSection from "./NumberPadSection"
 import {checkState} from "../../lib/checkState"
 import "./index.scss"
 import {connect} from "react-redux";
+import {collectData} from "../../model/action/record_action";
 
-function Money() {
+const defaultRecord = {
+    tags:[],
+    note:"",
+    category:"-",
+    account:0
+}
+
+function Money(props) {
     //建立初始数据
-    const [putData,setPutData] = useState({
-        tags:[],
-        note:"",
-        category:"-",
-        account:0
-    })
+    const [putData,setPutData] = useState(defaultRecord)
 
     //子组件改变父组件数据
     const  changePutData = (data)=>{
@@ -27,16 +30,10 @@ function Money() {
 
     //提交代码
     const submit = ()=>{
+        console.log(putData);
         if (checkState(putData) === true){
-            const record = JSON.parse(window.localStorage.getItem("record")) || [];
-            record.push(putData)
-            window.localStorage.setItem("record",JSON.stringify(record))
-            setPutData({
-                tags:[],
-                note:"",
-                category:"-",
-                account:0
-            })
+            props.collectData(putData)
+            setPutData(defaultRecord)
         }else {
             alert("请确定标签勾选和数目输入再重新输入")
         }
@@ -52,4 +49,6 @@ function Money() {
     )
 }
 
-export default connect()(Money)
+export default connect(state=>({record:state}),{
+    collectData
+})(Money)

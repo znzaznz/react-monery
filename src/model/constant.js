@@ -1,3 +1,3 @@
 const COLLECTDATA = "collectData"
 
-export default COLLECTDATA
+export {COLLECTDATA}

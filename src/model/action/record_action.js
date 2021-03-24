@@ -1,4 +1,4 @@
-import COLLECTDATA from "../constant";
+import  {COLLECTDATA} from "../constant";
 
 const collectData = (data)=>{
     return {type:COLLECTDATA,data}
