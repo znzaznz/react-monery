@@ -1,5 +1,6 @@
 import uuid from "react-uuid";
 import {useState} from "react";
+import {useUpdate} from "../lib/useUpdate";
 
 const defaultData = [
     {id:uuid(),name:"衣"},
@@ -8,8 +9,13 @@ const defaultData = [
     {id:uuid(),name:"行"}
 ]
 const useTags = ()=>{
-    //设置初始的tag名字
-    const [tagsArr,setTagsArr] = useState([])
+    //从localhost中取出数据,并且设置初始的tagsArr的名字
+    const winTags = JSON.parse(window.localStorage.getItem("tags")) ;
+    const [tagsArr,setTagsArr] = useState(winTags ? winTags : [])
+    //每当tagArr改变的时候，更新他在window中的值
+    useUpdate(()=>{
+        window.localStorage.setItem("tags",JSON.stringify(tagsArr))
+    },[tagsArr])
     //改变tag的名字
     const changeTagName = (id,newName)=>{
         setTagsArr(tagsArr.filter((item) => {
