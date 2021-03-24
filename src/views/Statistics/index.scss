@@ -1,0 +1,18 @@
+.statistics{
+  span{
+    font-size: 17px;
+  }
+  ul{
+    li{
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      .note{
+        color: #999999;
+      }
+    }
+  }
+  .statisticswapper{
+    background-color: white;
+  }
+}
