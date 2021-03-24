@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
-import uuid from "react-uuid"
+import React from 'react';
 import "./index.scss"
 import {useTags} from "../../../model/useTags";
 
 export default function Index(props) {
     const {tagsArr,addTag} = useTags()
-
 
     //增加选中效果
     const selectedTags = props.tags;

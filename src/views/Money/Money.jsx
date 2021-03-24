@@ -3,9 +3,11 @@ import TagsSection from "./TagsSection"
 import NoteSection from "./NoteSection"
 import CategorySection from "./CategorySection"
 import NumberPadSection from "./NumberPadSection"
+import {checkState} from "../../lib/checkState"
 import "./index.scss"
+import {connect} from "react-redux";
 
-export default function Money() {
+function Money() {
     //建立初始数据
     const [putData,setPutData] = useState({
         tags:[],
@@ -25,13 +27,19 @@ export default function Money() {
 
     //提交代码
     const submit = ()=>{
-        window.localStorage.setItem("record",JSON.stringify(putData))
-        setPutData({
-            tags:[],
-            note:"",
-            category:"-",
-            account:0
-        })
+        if (checkState(putData) === true){
+            const record = JSON.parse(window.localStorage.getItem("record")) || [];
+            record.push(putData)
+            window.localStorage.setItem("record",JSON.stringify(record))
+            setPutData({
+                tags:[],
+                note:"",
+                category:"-",
+                account:0
+            })
+        }else {
+            alert("请确定标签勾选和数目输入再重新输入")
+        }
     }
 
     return (
@@ -43,3 +51,5 @@ export default function Money() {
         </div>
     )
 }
+
+export default connect()(Money)
