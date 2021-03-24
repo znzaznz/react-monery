@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import dayjs from "dayjs";
 import CategorySection from "../Money/CategorySection"
 import {useTags} from "../../model/useTags";
 import "./index.scss"
+import {classifyDate} from "../../lib/dealDate";
+import uuid from "react-uuid";
 
 function Statistics(props) {
     const [category,setCategory] = useState("-")
     const {selectTagName} = useTags();
 
-    //定义展示的数据
-    const showRecords = props.record.filter((item)=>{
-        return item.category === category
-    })
+    //处理得到的数据
+    const showRecords = classifyDate(props.record)
     //设定按照一定的时间顺序排序
     return (
         <div className={"statistics"}>
@@ -20,19 +19,17 @@ function Statistics(props) {
                 <CategorySection category={category} onChange={(category)=>{setCategory(category)}}/>
             </div>
             <ul>
-                {showRecords.map((item)=>{
+                {showRecords.map((record)=>{
                     return (
-                            <li key={item.id}>
-                                <div className={"date"}>{dayjs(item.date).format("YYYY-MM-D")}</div>
-                                <div className={"recordLi"}>
-                                    <span>
-                                    {item.tags.map((item,index)=>{
-                                        return index !== 0 ? `,${selectTagName(item)}` : `${selectTagName(item)}`
-                                    })}
-                                </span>
-                                    <span className={"note"}>{item.note}</span>
-                                    <span>{`￥${item.account}`}</span>
-                                </div>
+                            <li key={uuid()}>
+                                <div><span>{record[0].date}</span></div>
+                                {
+                                    record.filter((item)=>{
+                                        if (item.category === category){
+
+                                        }
+                                    })
+                                }
                             </li>
                     )})}
             </ul>
@@ -41,3 +38,12 @@ function Statistics(props) {
 }
 
 export default connect(state=>({record:state}))(Statistics)
+
+//
+// <div className={"recordLi"}>
+//     <span>{item.tags.map((item,index)=>{
+//             return index !== 0 ? `,${selectTagName(item)}` : `${selectTagName(item)}`
+//         })}</span>
+// <span className={"note"}>{item.note}</span>
+// <span>{`￥${item.account}`}</span>
+// </div>

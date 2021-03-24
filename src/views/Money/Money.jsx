@@ -8,6 +8,7 @@ import "./index.scss"
 import {connect} from "react-redux";
 import {collectData} from "../../model/action/record_action";
 import uuid from "react-uuid";
+import dayjs from "dayjs";
 
 const defaultRecord = {
     tags:[],
@@ -33,7 +34,7 @@ function Money(props) {
     //提交代码
     const submit = ()=>{
         if (checkState(putData) === true){
-            props.collectData({...putData,date:new Date(),id:uuid()})
+            props.collectData({...putData,date:dayjs(new Date()).format("YYYY-MM-D"),id:uuid()})
             setPutData(defaultRecord)
         }else {
             alert("请确定标签勾选和数目输入再重新输入")
