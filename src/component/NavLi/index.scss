@@ -1,18 +1,16 @@
 .NavLi{
-  a{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 0;
-    font-size: 16px;
-    line-height: 1.2;
-    color: black;
-    &.selected{
-      color: red;
-      svg{
-        fill: red;
-      }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 16px;
+  line-height: 1.2;
+  color: black;
+  &.selected{
+    color: red;
+    svg{
+      fill: red;
     }
   }
 }

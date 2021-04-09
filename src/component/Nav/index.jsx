@@ -6,9 +6,15 @@ export default function index() {
     return (
         <nav className={"Nav"}>
             <ul>
-                <NavLi type={"tags"} name={"标签"}/>
-                <NavLi type={"money"} name={"记账"}/>
-                <NavLi type={"statistics"} name={"统计"}/>
+                <li>
+                    <NavLi type={"tags"} name={"标签"}/>
+                </li>
+                <li>
+                    <NavLi type={"money"} name={"记账"}/>
+                </li>
+                <li>
+                    <NavLi type={"statistics"} name={"统计"}/>
+                </li>
             </ul>
         </nav>
     )

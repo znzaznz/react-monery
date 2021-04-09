@@ -5,11 +5,9 @@ import "./index.scss"
 
 export default function Index(props) {
     return (
-        <li className={"NavLi"}>
-            <NavLink to={`/${props.type}`} activeClassName={"selected"}>
-                <SvgIcon name={props.type}/>
-                {props.name}
-            </NavLink>
-        </li>
+        <NavLink to={`/${props.type}`} activeClassName={"selected"} className={"NavLi"}>
+            <SvgIcon name={`icon-${props.type}`}/>
+            {props.name}
+        </NavLink>
     )
 }
