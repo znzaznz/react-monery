@@ -4,7 +4,7 @@ import {buttonClick} from "../../../lib/buttonClick.jsx";
 
 export default function Index(props) {
     //初始化代码数据，并且得到showNum中的数字
-    const buttonNum = ['1',"2",'3','删除','4','5','6','清空','7','8','9','OK','0','.']
+    const buttonNum = ['1','2','3','日期','4','5','6','+','1','2','3','-','.','0','删除','完成']
     const [showNum,setShowNum] = useState("0")
 
     //设定button点击事件
