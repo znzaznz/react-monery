@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import {collectData} from "../../model/action/record_action";
 import uuid from "react-uuid";
 import dayjs from "dayjs";
+import RollBack from "../../component/RollBack/RollBack";
 
 const defaultRecord = {
     tags:[],
@@ -43,11 +44,13 @@ function Money(props) {
 
     return (
         <div className={"Money"}>
+            <div className="moneywapper">
+                <RollBack position={"left"}/>
+                <CategorySection category={putData.category} onChange={(data)=>changePutData({category:data})}/>
+                <RollBack/>
+            </div>
            <TagsSection tags={putData.tags} onChange={(data)=>changePutData({tags:data})}/>
            <NoteSection onChange={(data)=>changePutData({note:data})} note={putData.note}/>
-           <div className="moneywapper">
-               <CategorySection category={putData.category} onChange={(data)=>changePutData({category:data})}/>
-           </div>
            <NumberPadSection number={putData.account} onChange={(data)=>{changePutData({account:data})}} onClick={submit}/>
         </div>
     )

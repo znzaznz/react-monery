@@ -1,9 +1,22 @@
-.Money{
+.Money {
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
-  .moneywapper{
-    background-color: #c4c4c4;
+
+  .moneywapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #efb755;
+    div {
+      padding: 0 15px;
+      ol {
+        padding: 5px 0;
+        li {
+          padding: 5px;
+        }
+      }
+    }
   }
 }
