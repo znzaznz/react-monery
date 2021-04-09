@@ -13,7 +13,7 @@ function App() {
         <main>
             <Switch/>
             {location !== "/money" ? <NavLink to={"/money"} className={"account"}>
-                <SvgIcon name={`icon-account`} />
+                <SvgIcon name={`icon-money`} />
             </NavLink> : ""}
         </main>
         <Nav/>

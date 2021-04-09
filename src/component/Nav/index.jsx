@@ -10,10 +10,10 @@ export default function index() {
                     <NavLi type={"tags"} name={"标签"}/>
                 </li>
                 <li>
-                    <NavLi type={"money"} name={"记账"}/>
+                    <NavLi type={"statistics"} name={"统计"}/>
                 </li>
                 <li>
-                    <NavLi type={"statistics"} name={"统计"}/>
+                    <NavLi type={"account"} name={"记账"}/>
                 </li>
             </ul>
         </nav>

@@ -5,6 +5,7 @@ import Money from "../../views/Money/Money";
 import Statistics from "../../views/Statistics/Statistics";
 import NoShow from "../../views/NoShow/NoShow";
 import Tag from "../../views/Tag"
+import Account from "../../views/Account/Account";
 
 export default function index() {
     return (
@@ -17,6 +18,9 @@ export default function index() {
             </Route>
             <Route path={"/money"} >
                 <Money/>
+            </Route>
+            <Route path={"/account"}>
+                <Account/>
             </Route>
             <Route path={"/statistics"} >
                 <Statistics/>
